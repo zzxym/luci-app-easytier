@@ -10,7 +10,7 @@ network_name = "mynetwork"
 network_secret = "mysecret"
 
 [[peer]]
-uri = "tcp://public.easytier.top:11010"
+uri = "tcp://sdwan.xiaolin.cc:11010"
 
 [file_logger]
 level = "info"
