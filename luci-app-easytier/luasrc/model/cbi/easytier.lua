@@ -1,13 +1,13 @@
 local http = luci.http
 local nixio = require "nixio"
 
-m = Map("easytier")
-m.description = translate('一个简单、安全、去中心化的内网穿透 VPN 组网方案，使用 Rust 语言和 Tokio 框架实现。 项目地址：<a href="https://github.com/EasyTier/EasyTier">github.com/EasyTier/EasyTier</a>&nbsp;&nbsp;<a href="http://easytier.cn">官网文档</a>&nbsp;&nbsp;<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=jhP2Z4UsEZ8wvfGPLrs0VwLKn_uz0Q_p&authKey=OGKSQLfg61YPCpVQuvx%2BxE7hUKBVBEVi9PljrDKbHlle6xqOXx8sOwPPTncMambK&noverify=0&group_code=949700262">QQ群</a>&nbsp;&nbsp;<a href="https://doc.oee.icu">菜鸟教程</a>')
+m = Map("SdWan")
+m.description = translate('简单、安全、SdWan组网方案。 ')
 
 -- easytier
 m:section(SimpleSection).template  = "easytier/easytier_status"
 
-s=m:section(TypedSection, "easytier", translate("EasyTier配置"))
+s=m:section(TypedSection, "easytier", translate("SdWan配置"))
 s.addremove=false
 s.anonymous=true
 s:tab("general", translate("基本设置"))
@@ -28,14 +28,14 @@ btncq.write = function()
 end
 
 etcmd = s:taboption("general",ListValue, "etcmd", translate("启动方式"),
-	translate("默认使用命令行方式启动，也可以使用配置文件启动或<a href='https://easytier.cn/web'>WEB网页配置</a><br>切换启动方式后将以指定的方式启动，请谨慎选择"))
+	translate("默认命令行方式，也可使用配置文件启动或WEB网页配置")
 etcmd.default = "etcmd"
 etcmd:value("etcmd",translate("命令行"))
 etcmd:value("config",translate("配置文件"))
 etcmd:value("web",translate("WEB配置"))
 
 et_config = s:taboption("general",TextValue, "et_config", translate("配置文件"),
-	translate("配置文件在/etc/easytier/config.toml<br>命令行的启动参数和此配置文件的参数并不同步，请自行修改<br>配置文件介绍：<a href='https://easytier.rs/guide/network/config-file.html'>点此查看</a>"))
+	translate("配置文件在/etc/easytier/config.toml<br>命令行的启动参数和此配置文件的参数并不同步，请自行修改"))
 et_config.rows = 18
 et_config.wrap = "off"
 et_config:depends("etcmd", "config")
@@ -54,7 +54,7 @@ et_config.write = function(self, section, value)
 end
 
 web_config = s:taboption("general", Value, "web_config", translate("WEB服务器地址"),
-	translate("WEB配置服务器地址。（-w 参数）<br>自建WEB服务器 输入格式：udp://服务器地址:22020/账户名<br>官方WEB服务器 输入格式：账户名 <br>官方WEB服务器配置：<a href='https://easytier.cn/web'>点此</a>"))
+	translate("WEB配置服务器地址。（-w 参数） "))
 web_config.placeholder = "admin"
 web_config:depends("etcmd", "web")
 
@@ -71,7 +71,7 @@ network_secret.placeholder = "test"
 network_secret:depends("etcmd", "etcmd")
 
 ip_dhcp = s:taboption("general",Flag, "ip_dhcp", translate("启用dhcp"),
-	translate("由Easytier自动确定并设置IP地址，默认从10.0.0.1开始。警告：在使用DHCP时，如果网络中出现IP冲突，IP将自动更改。（-d 参数）"))
+	translate("由SdWan自动确定并设置IP地址，默认从10.0.0.1开始。警告：在使用DHCP时，如果网络中出现IP冲突，IP将自动更改。（-d 参数）"))
 ip_dhcp:depends("etcmd", "etcmd")
 
 ipaddr = s:taboption("general",Value, "ipaddr", translate("接口IP地址"),
@@ -81,15 +81,15 @@ ipaddr.placeholder = "10.0.0.1"
 ipaddr:depends("etcmd", "etcmd")
 
 peeradd = s:taboption("general",DynamicList, "peeradd", translate("对等节点"),
-	translate("初始连接的对等节点，和下方参数作用一样 （-p 参数）<br>公共服务器可用状态查询：<a href='https://easytier.gd.nkbpal.cn/status/easytier' target='_blank'>点此查询</a>"))
-peeradd.placeholder = "tcp://sdwan.xiaolin.cc:11010"
+	translate("初始连接的对等节点，和下方参数作用一样 （-p 参数）"))
+peeradd.placeholder = "tcp://sdwan.xiaolin.cc:10010"
 peeradd:depends("etcmd", "etcmd")
 
 external_node = s:taboption("general", Value, "external_node", translate("共享节点地址"),
 	translate("使用共享节点来发现对等节点，和上方参数作用一样 （-e 参数）"))
 external_node.default = ""
 external_node.placeholder = "tcp://sdwan.xiaolin.cc:11010"
-external_node:value("tcp://sdwan.xiaolin.cc:11010", translate("晓林服务器-tcp://sdwan.xiaolin.cc:11010"))
+external_node:value("tcp://sdwan.xiaolin.cc:11010", translate("晓林服务器-tcp://sdwan.xiaolin.cc:10010"))
 external_node:depends("etcmd", "etcmd")
 
 proxy_network = s:taboption("general",DynamicList, "proxy_network", translate("子网代理"),
@@ -282,7 +282,6 @@ kcp_input.rmempty = false
 kcp_input:depends("etcmd", "etcmd")
 
 log = s:taboption("general",ListValue, "log", translate("程序日志"),
-	translate("运行日志在/tmp/easytier.log,可在上方日志查看<br>若启动失败，请前往 状态- 系统日志 查看具体启动失败日志<br>详细程度：警告<信息<调试<跟踪"))
 log.default = "info"
 log:value("off",translate("关闭"))
 log:value("warn",translate("警告"))
@@ -294,15 +293,15 @@ log:depends("etcmd", "config")
 
 et_forward = s:taboption("privacy",MultiValue, "et_forward", translate("访问控制"),
 	translate("设置不同网络区域之间的流量允许规则"))
-et_forward:value("etfwlan", translate("允许从虚拟网络 EasyTier 到局域网 lan 的流量"))
-et_forward:value("etfwwan", translate("允许从虚拟网络 EasyTier 到广域网 wan 的流量"))
-et_forward:value("lanfwet", translate("允许从局域网 lan 到虚拟网络 EasyTier 的流量"))
-et_forward:value("wanfwet", translate("允许从广域网 wan 到虚拟网络 EasyTier 的流量"))
+et_forward:value("etfwlan", translate("允许从虚拟网络 到局域网 lan 的流量"))
+et_forward:value("etfwwan", translate("允许从虚拟网络 到广域网 wan 的流量"))
+et_forward:value("lanfwet", translate("允许从局域网 lan 到虚拟网络 的流量"))
+et_forward:value("wanfwet", translate("允许从广域网 wan 到虚拟网络 的流量"))
 et_forward.default = "etfwlan etfwwan lanfwet"
 et_forward.rmempty = true
 
 check = s:taboption("privacy",Flag, "check", translate("通断检测"),
-        translate("开启通断检测后，可以指定对端的设备IP，当所有指定的IP都ping不通时将会重启easytier程序"))
+        translate("开启通断检测后，可以指定对端的设备IP，当所有指定的IP都ping不通时将会重启程序"))
 
 checkip=s:taboption("privacy",DynamicList,"checkip",translate("检测IP"),
         translate("确保这里的对端设备IP地址填写正确且可访问，若填写错误将会导致无法ping通，程序反复重启"))
