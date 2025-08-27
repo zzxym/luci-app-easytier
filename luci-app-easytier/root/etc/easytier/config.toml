@@ -10,9 +10,9 @@ network_name = "mynetwork"
 network_secret = "mysecret"
 
 [[peer]]
-uri = "tcp://sdwan.xiaolin.cc:11010"
+uri = "tcp://sdwan.xiaolin.cc:10010"
 
 [file_logger]
 level = "info"
-file = "easytier-default"
+file = "sdwan-default"
 dir = "/tmp"

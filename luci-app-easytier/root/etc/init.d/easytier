@@ -466,10 +466,10 @@ start_et() {
 			[ -z "$wg_port" ] || procd_append_param command -l "wg:$wg_port"
 			if [ "$listener6" = "1" ] ; then
                  		if [ -z "$tcp_port" ] && [ -z "$ws_port" ] && [ -z "$wss_port" ] && [ -z "$wg_port" ] ; then
-                     			tcp_port="11010"
-                     			ws_port="11011"
-                     			wss_port="11012"
-                     			wg_port="11011"
+                     			tcp_port="10010"
+                     			ws_port="10011"
+                     			wss_port="10012"
+                     			wg_port="10011"
                   		fi
                      		[ -z "$tcp_port" ] || procd_append_param command -l "tcp://[::]:$tcp_port"
 		     		[ -z "$tcp_port" ] || procd_append_param command -l "udp://[::]:$tcp_port"
@@ -533,10 +533,10 @@ start_et() {
                 fi
                 if [ "$listenermode" = "ON" ] || [ "$etcmd" = "web" ] ; then
                   if [ -z "$tcp_port" ] && [ -z "$ws_port" ] && [ -z "$wss_port" ] && [ -z "$wg_port" ] ; then
-                     tcp_port="11010"
-                     ws_port="11011"
-                     wss_port="11012"
-                     wg_port="11011"
+                     tcp_port="10010"
+                     ws_port="10011"
+                     wss_port="10012"
+                     wg_port="10011"
                   fi
                 set_firewall  
 		fi
