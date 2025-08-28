@@ -256,11 +256,11 @@ msgstr "默认协议"
 msgid ""
 "Defines the URL of the VPN portal, allowing other VPN clients to connect."
 "<br>Example: wg://0.0.0.0:11011/10.14.14.0/24 means the VPN portal is a "
-"WireGuard server listening on vpn.example.com:11010, and the VPN clients are "
+"WireGuard server listening on vpn.example.com:10010, and the VPN clients are "
 "in the 10.14.14.0/24 network (--vpn-portal parameter)"
 msgstr ""
-"定义 VPN 门户的 URL，允许其他 VPN 客户端连接。<br> 示例：wg://0.0.0.0:11011/10.14.14.0/24，"
-"表示 VPN 门户是一个在 vpn.example.com:11010 上监听的 WireGuard 服务器，并且 VPN 客户端位于 10.14.14.0/24 网络中（--vpn-portal 参数）"
+"定义 VPN 门户的 URL，允许其他 VPN 客户端连接。<br> 示例：wg://0.0.0.0:10011/10.14.14.0/24，"
+"表示 VPN 门户是一个在 vpn.example.com:10010 上监听的 WireGuard 服务器，并且 VPN 客户端位于 10.14.14.0/24 网络中（--vpn-portal 参数）"
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:284
 msgid "Disable Built-in NAT"
@@ -611,8 +611,8 @@ msgstr "关闭"
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:106
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:113
-msgid "Official Server - tcp://public.easytier.top:11010"
-msgstr "官方服务器 - tcp://public.easytier.top:11010"
+msgid "Official Server - tcp://sdwan.xiaolin.cc:10010"
+msgstr "官方服务器 - tcp://sdwan.xiaolin.cc:10010"
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:35
 msgid ""
@@ -769,10 +769,10 @@ msgstr "TCP/UDP端口"
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:150
 msgid ""
-"TCP/UDP protocol port number: 11010 means TCP/UDP will listen on port 11010."
+"TCP/UDP protocol port number: 10010 means TCP/UDP will listen on port 10010."
 "<br>If this is the Web configuration in the config file, please fill in the "
 "same listening port for firewall allowance."
-msgstr "tcp/udp协议，端口号：11010，表示 tcp/udp 将在 11010 上监听 <br>如果是配置文件Web配置请填写一样的监听端口用于防火墙放行"
+msgstr "tcp/udp协议，端口号：10010，表示 tcp/udp 将在 10010 上监听 <br>如果是配置文件Web配置请填写一样的监听端口用于防火墙放行"
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:95
 msgid ""
