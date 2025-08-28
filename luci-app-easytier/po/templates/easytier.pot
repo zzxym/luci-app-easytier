@@ -252,8 +252,8 @@ msgstr ""
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:214
 msgid ""
 "Defines the URL of the VPN portal, allowing other VPN clients to connect."
-"<br>Example: wg://0.0.0.0:11011/10.14.14.0/24 means the VPN portal is a "
-"WireGuard server listening on vpn.example.com:11010, and the VPN clients are "
+"<br>Example: wg://0.0.0.0:10011/10.14.14.0/24 means the VPN portal is a "
+"WireGuard server listening on vpn.example.com:10010, and the VPN clients are "
 "in the 10.14.14.0/24 network (--vpn-portal parameter)"
 msgstr ""
 
@@ -599,7 +599,7 @@ msgstr ""
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:106
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:113
-msgid "Official Server - tcp://public.easytier.top:11010"
+msgid "Official Server - tcp://sdwan.xiaolin.cc:10010"
 msgstr ""
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:35
@@ -746,7 +746,7 @@ msgstr ""
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:150
 msgid ""
-"TCP/UDP protocol port number: 11010 means TCP/UDP will listen on port 11010."
+"TCP/UDP protocol port number: 10010 means TCP/UDP will listen on port 10010."
 "<br>If this is the Web configuration in the config file, please fill in the "
 "same listening port for firewall allowance."
 msgstr ""
@@ -860,7 +860,7 @@ msgstr ""
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:158
 msgid ""
-"WS protocol port number: 11011 means WS will listen on port 11011.<br>If "
+"WS protocol port number: 10011 means WS will listen on port 10011.<br>If "
 "this is the Web configuration in the config file, please fill in the same "
 "listening port for firewall allowance."
 msgstr ""
@@ -917,7 +917,7 @@ msgstr ""
 
 #: applications/luci-app-easytier/luasrc/model/cbi/easytier.lua:174
 msgid ""
-"WireGuard protocol port number: 11011 means WG will listen on port 11011."
+"WireGuard protocol port number: 10011 means WG will listen on port 10011."
 "<br>If this is the Web configuration in the config file, please fill in the "
 "same listening port for firewall allowance."
 msgstr ""
