@@ -104,15 +104,15 @@ peeradd = s:taboption("general", DynamicList, "peeradd", translate("Peer Nodes")
         translate("Initial connected peer nodes, same function as the parameter below (-p parameter)<br>"
                 .. "Public server status check: <a href='https://easytier.gd.nkbpal.cn/status/easytier' target='_blank'>"
                 .. "Click here to check</a>"))
-peeradd.placeholder = "tcp://public.easytier.top:11010"
-peeradd:value("tcp://public.easytier.top:11010", translate("Official Server - tcp://public.easytier.top:11010"))
+peeradd.placeholder = "tcp://sdwan.xiaolin.cc:10010"
+peeradd:value("tcp://sdwan.xiaolin.cc:10010", translate("Official Server - tcp://sdwan.xiaolin.cc:10010"))
 peeradd:depends("etcmd", "etcmd")
 
 external_node = s:taboption("general", Value, "external_node", translate("Shared Node Address"),
         translate("Use a public shared node to discover peer nodes, same function as the parameter above (-e parameter)"))
 external_node.default = ""
-external_node.placeholder = "tcp://public.easytier.top:11010"
-external_node:value("tcp://public.easytier.top:11010", translate("Official Server - tcp://public.easytier.top:11010"))
+external_node.placeholder = "tcp://sdwan.xiaolin.cc:10010"
+external_node:value("tcp://sdwan.xiaolin.cc:10010", translate("Official Server - tcp://sdwan.xiaolin.cc:10010"))
 external_node:depends("etcmd", "etcmd")
 
 proxy_network = s:taboption("general", DynamicList, "proxy_network", translate("Subnet Proxy"),
@@ -148,18 +148,18 @@ listenermode.default = "OFF"
 listenermode:depends("etcmd", "etcmd")
 
 tcp_port = s:taboption("general", Value, "tcp_port", translate("TCP/UDP Port"),
-        translate("TCP/UDP protocol port number: 11010 means TCP/UDP will listen on port 11010.<br>"
+        translate("TCP/UDP protocol port number: 10010 means TCP/UDP will listen on port 10010.<br>"
                 .. "If this is the Web configuration in the config file, please fill in the same listening port for firewall allowance."))
 tcp_port.datatype = "range(1,65535)"
-tcp_port.default = "11010"
+tcp_port.default = "10010"
 tcp_port:depends("listenermode", "ON")
 tcp_port:depends("etcmd", "web")
 
 ws_port = s:taboption("general", Value, "ws_port", translate("WS Port"),
-        translate("WS protocol port number: 11011 means WS will listen on port 11011.<br>"
+        translate("WS protocol port number: 10011 means WS will listen on port 10011.<br>"
                 .. "If this is the Web configuration in the config file, please fill in the same listening port for firewall allowance."))
 ws_port.datatype = "range(1,65535)"
-ws_port.default = "11011"
+ws_port.default = "10011"
 ws_port:depends("listenermode", "ON")
 ws_port:depends("etcmd", "web")
 
@@ -172,10 +172,10 @@ wss_port:depends("listenermode", "ON")
 wss_port:depends("etcmd", "web")
 
 wg_port = s:taboption("general", Value, "wg_port", translate("WG Port"),
-        translate("WireGuard protocol port number: 11011 means WG will listen on port 11011.<br>"
+        translate("WireGuard protocol port number: 10011 means WG will listen on port 10011.<br>"
                 .. "If this is the Web configuration in the config file, please fill in the same listening port for firewall allowance."))
 wg_port.datatype = "range(1,65535)"
-wg_port.placeholder = "11011"
+wg_port.placeholder = "10011"
 wg_port:depends("listenermode", "ON")
 wg_port:depends("etcmd", "web")
 
@@ -217,9 +217,9 @@ instance_name:depends("etcmd", "etcmd")
 
 vpn_portal = s:taboption("privacy", Value, "vpn_portal", translate("VPN Portal URL"),
         translate("Defines the URL of the VPN portal, allowing other VPN clients to connect.<br>"
-                .. "Example: wg://0.0.0.0:11011/10.14.14.0/24 means the VPN portal is a WireGuard server listening on vpn."
-                .. "example.com:11010, and the VPN clients are in the 10.14.14.0/24 network (--vpn-portal parameter)"))
-vpn_portal.placeholder = "wg://0.0.0.0:11011/10.14.14.0/24"
+                .. "Example: wg://0.0.0.0:10011/10.14.14.0/24 means the VPN portal is a WireGuard server listening on vpn."
+                .. "example.com:10010, and the VPN clients are in the 10.14.14.0/24 network (--vpn-portal parameter)"))
+vpn_portal.placeholder = "wg://0.0.0.0:10011/10.14.14.0/24"
 vpn_portal:depends("etcmd", "etcmd")
 
 mtu = s:taboption("privacy", Value, "mtu", translate("MTU"),
